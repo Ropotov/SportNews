@@ -12,17 +12,15 @@ class NewsAdapter() : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     var listResponse = emptyList<Article>()
 
+    var onNewsClickListener: OnNewsClickListener? = null
+
     class ViewHolder(private val binding: NewsItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(position: Article) {
             with(binding) {
                 titleTv.text = position.title
-                if (position.author == null) {
-                    authorTv.text = "SportNews"
-                } else {
-                    authorTv.text = position.author.toString()
-                }
+                if (position.author == null) authorTv.text = "SportNews" else authorTv.text = position.author.toString()
                 textTv.text = position.description
             }
             Picasso.get().load(position.urlToImage).into(binding.imageNews)
@@ -45,11 +43,20 @@ class NewsAdapter() : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val position = listResponse[position]
-        holder.bind(position)
+        val pos = listResponse[position]
+        holder.bind(pos)
+        holder.itemView.setOnClickListener {
+            onNewsClickListener?.onNewsClick(pos)
+        }
     }
 
     override fun getItemCount(): Int {
         return listResponse.size
+    }
+
+    interface OnNewsClickListener {
+        fun onNewsClick(article: Article){
+
+        }
     }
 }
