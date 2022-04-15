@@ -5,7 +5,7 @@ import ru.nikita.sportnews.api.RetrofitInstance
 import ru.nikita.sportnews.model.News
 
 class Repository {
-    suspend fun getNews(): Response<News>{
+    suspend fun getNews(): Response<News> {
         return RetrofitInstance.api.getNews()
     }
 }

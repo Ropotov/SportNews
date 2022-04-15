@@ -8,15 +8,13 @@ import retrofit2.Response
 import ru.nikita.sportnews.model.News
 import ru.nikita.sportnews.repository.Repository
 
-class MyViewModel: ViewModel() {
+class MyViewModel : ViewModel() {
     val repo = Repository()
     val myNewsList: MutableLiveData<Response<News>> = MutableLiveData()
 
-    fun getMyNews(){
-        viewModelScope.launch{
+    fun getMyNews() {
+        viewModelScope.launch {
             myNewsList.value = repo.getNews()
         }
     }
-
-
 }

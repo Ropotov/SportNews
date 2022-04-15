@@ -14,17 +14,18 @@ class NewsAdapter() : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     class ViewHolder(private val binding: NewsItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetTextI18n")
         fun bind(position: Article) {
             with(binding) {
                 titleTv.text = position.title
                 if (position.author == null) {
-                    authorTv.text = ""
+                    authorTv.text = "SportNews"
                 } else {
                     authorTv.text = position.author.toString()
                 }
+                textTv.text = position.description
             }
             Picasso.get().load(position.urlToImage).into(binding.imageNews)
-
         }
     }
 
@@ -52,5 +53,3 @@ class NewsAdapter() : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
         return listResponse.size
     }
 }
-
-

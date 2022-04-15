@@ -1,6 +1,5 @@
 package ru.nikita.sportnews
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.nikita.sportnews.adapter.NewsAdapter
 import ru.nikita.sportnews.databinding.FragmentNewsBinding
-import ru.nikita.sportnews.model.Article
 import ru.nikita.sportnews.viewmodel.MyViewModel
 
 class NewsFragment : Fragment() {
