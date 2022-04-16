@@ -43,7 +43,7 @@
                     android:padding="10dp"
                     android:ellipsize="end"
                     android:fontFamily="@font/roboto"
-                    android:maxLines="2"
+                    android:maxLines="3"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -72,7 +72,7 @@
                     android:id="@+id/author_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                 android:padding="10dp"
+                    android:padding="10dp"
                     android:layout_marginBottom="5dp"
                     android:fontFamily="@font/roboto"
                     android:textColor="@color/white"
@@ -84,6 +84,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/text_tv"
                     tools:ignore="SmallSp"
                     tools:text="@string/author" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

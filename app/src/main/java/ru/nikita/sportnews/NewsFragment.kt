@@ -1,5 +1,7 @@
 package ru.nikita.sportnews
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +21,7 @@ class NewsFragment : Fragment() {
     private lateinit var binding: FragmentNewsBinding
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: NewsAdapter
+    lateinit var url: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,10 +45,29 @@ class NewsFragment : Fragment() {
             }
         })
         adapter.onNewsClickListener = object : NewsAdapter.OnNewsClickListener {
-            override fun onNewsClick(article: Article) {
-                super.onNewsClick(article)
-                Toast.makeText(context, "Good", Toast.LENGTH_LONG).show()
+            override fun onNewsClick(article: Article, url: String) {
+                super.onNewsClick(article, url)
+                try {
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                    intent.data = Uri.parse(url)
+                    startActivity(intent)
+                } catch (e: Exception) {
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.no_browser),
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
             }
+        }
+        binding.swipe.setOnRefreshListener {
+            viewModel.myNewsList.observe(viewLifecycleOwner, { response ->
+                response.body()?.articles?.let {
+                    adapter.setList(it)
+                }
+            })
+            binding.swipe.isRefreshing = false
         }
     }
 }

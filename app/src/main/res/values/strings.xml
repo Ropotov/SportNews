@@ -1,10 +1,9 @@
 <resources>
     <string name="app_name">Sport News</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title">Title</string>
     <string name="author">author</string>
     <string name="text">Long long text </string>
     <string name="sport_news">Sport News</string>
+    <string name="no_browser">На устройстве не найдено браузера</string>
 
 </resources>
