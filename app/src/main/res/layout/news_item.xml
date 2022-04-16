@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
@@ -9,8 +8,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/news_item"
         android:layout_marginTop="14dp"
+        android:backgroundTint="@color/news_item"
         android:elevation="15dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +24,7 @@
             <ImageView
                 android:id="@+id/imageNews"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="160dp"
                 android:scaleType="centerCrop"
                 tools:src="@drawable/news_logo" />
 
@@ -38,10 +37,10 @@
                     android:id="@+id/title_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
                     android:ellipsize="end"
                     android:fontFamily="@font/roboto"
                     android:maxLines="3"
+                    android:padding="10dp"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -54,9 +53,9 @@
                     android:id="@+id/text_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ellipsize="end"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
+                    android:ellipsize="end"
                     android:fontFamily="@font/roboto"
                     android:maxLines="3"
                     android:textColor="@color/white"
@@ -66,24 +65,44 @@
                     app:layout_constraintTop_toBottomOf="@+id/title_tv"
                     tools:text="@string/title" />
 
-                <TextView
-                    android:id="@+id/author_tv"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/roboto"
-                    android:textColor="@color/white"
-                    android:textSize="10sp"
-                    android:textStyle="italic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    android:orientation="horizontal"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_tv"
-                    tools:ignore="SmallSp"
-                    tools:text="@string/author" />
+                    android:padding="10dp">
 
+                    <TextView
+                        android:id="@+id/author_tv"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:textStyle="italic"
+                        tools:ignore="SmallSp"
+                        tools:text="@string/author" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:textSize="11sp"
+                        android:text="@string/click"
+                        android:textColor="@color/white" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        android:contentDescription="@string/click" />
+
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

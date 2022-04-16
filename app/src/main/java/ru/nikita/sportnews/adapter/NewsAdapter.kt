@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import ru.nikita.sportnews.R
 import ru.nikita.sportnews.databinding.NewsItemBinding
 import ru.nikita.sportnews.model.Article
 
@@ -26,10 +27,13 @@ class NewsAdapter() : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
                     position.author.toString()
                 textTv.text = position.description
             }
-            Picasso.get().load(position.urlToImage).into(binding.imageNews)
+            if(position.urlToImage != null) {
+                Picasso.get().load(position.urlToImage).into(binding.imageNews)
+            }else{
+                binding.imageNews.setImageResource(R.drawable.logo_zag)
+            }
             url = position.url
         }
-
     }
 
     @SuppressLint("NotifyDataSetChanged")
