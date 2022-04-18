@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Nikita/AndroidStudioProjects/SportNews/app/src/main/res/font/adamina.xml" value="0.2390625" />
+        <entry key="..\:/Users/Nikita/AndroidStudioProjects/SportNews/app/src/main/res/font/audiowide.xml" value="0.2390625" />
+        <entry key="..\:/Users/Nikita/AndroidStudioProjects/SportNews/app/src/main/res/font/roboto.xml" value="0.2390625" />
         <entry key="..\:/Users/Nikita/AndroidStudioProjects/SportNews/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/Nikita/AndroidStudioProjects/SportNews/app/src/main/res/layout/fragment_detail_news.xml" value="0.371875" />
         <entry key="..\:/Users/Nikita/AndroidStudioProjects/SportNews/app/src/main/res/layout/fragment_news.xml" value="0.2957427536231884" />

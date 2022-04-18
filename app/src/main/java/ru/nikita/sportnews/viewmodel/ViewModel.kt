@@ -9,12 +9,12 @@ import ru.nikita.sportnews.model.News
 import ru.nikita.sportnews.repository.Repository
 
 class MyViewModel : ViewModel() {
-    val repo = Repository()
+    private val repository = Repository()
     val myNewsList: MutableLiveData<Response<News>> = MutableLiveData()
 
     fun getMyNews() {
         viewModelScope.launch {
-            myNewsList.value = repo.getNews()
+            myNewsList.value = repository.getNews()
         }
     }
 }

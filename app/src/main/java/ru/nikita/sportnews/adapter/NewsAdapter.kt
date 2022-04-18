@@ -9,7 +9,7 @@ import ru.nikita.sportnews.R
 import ru.nikita.sportnews.databinding.NewsItemBinding
 import ru.nikita.sportnews.model.Article
 
-class NewsAdapter() : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
+class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     private var listResponse = emptyList<Article>()
 
@@ -19,20 +19,16 @@ class NewsAdapter() : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
         var url = ""
 
-        @SuppressLint("SetTextI18n")
-        fun bind(position: Article) {
+        fun bind(article: Article) {
             with(binding) {
-                titleTv.text = position.title
-                if (position.author == null) authorTv.text = "SportNews" else authorTv.text =
-                    position.author.toString()
-                textTv.text = position.description
+                titleTv.text = article.title
+                authorTv.text = article.author ?: "Sport News"
+                textTv.text = article.description ?: "Подробнее на сайте"
             }
-            if(position.urlToImage != null) {
-                Picasso.get().load(position.urlToImage).into(binding.imageNews)
-            }else{
-                binding.imageNews.setImageResource(R.drawable.logo_zag)
-            }
-            url = position.url
+            article.urlToImage?.let {
+                Picasso.get().load(article.urlToImage).into(binding.imageNews)
+            } ?: binding.imageNews.setImageResource(R.drawable.logo_zag)
+            url = article.url
         }
     }
 
@@ -64,7 +60,7 @@ class NewsAdapter() : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
     }
 
     interface OnNewsClickListener {
-        fun onNewsClick(article: Article, url: String) {
+        fun onNewsClick(article: Article, url: String){
 
         }
     }

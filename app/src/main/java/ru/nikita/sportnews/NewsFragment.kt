@@ -21,7 +21,6 @@ class NewsFragment : Fragment() {
     private lateinit var binding: FragmentNewsBinding
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: NewsAdapter
-    lateinit var url: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,7 +45,7 @@ class NewsFragment : Fragment() {
         })
         adapter.onNewsClickListener = object : NewsAdapter.OnNewsClickListener {
             override fun onNewsClick(article: Article, url: String) {
-                super.onNewsClick(article, url)
+                super.onNewsClick(article = article, url = url)
                 try {
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.addCategory(Intent.CATEGORY_BROWSABLE);
