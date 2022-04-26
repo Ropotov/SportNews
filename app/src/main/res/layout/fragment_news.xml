@@ -10,6 +10,7 @@
         android:id="@+id/news_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:background="@color/news_back"
         android:fontFamily="@font/audiowide"
         android:gravity="top"
@@ -19,6 +20,7 @@
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,7 +28,6 @@
         android:id="@+id/swipe"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:padding="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -37,7 +38,7 @@
             android:id="@+id/newsRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/news_item" />
+            tools:listitem="@layout/new_news_item" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

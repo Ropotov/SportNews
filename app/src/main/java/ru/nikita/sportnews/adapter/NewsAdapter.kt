@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import ru.nikita.sportnews.R
+import ru.nikita.sportnews.databinding.NewNewsItemBinding
 import ru.nikita.sportnews.databinding.NewsItemBinding
 import ru.nikita.sportnews.model.Article
 
@@ -23,11 +24,12 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
             with(binding) {
                 titleTv.text = article.title
                 authorTv.text = article.author ?: "Sport News"
-                textTv.text = article.description ?: "Подробнее на сайте"
+                //textTv.text = article.description ?: "Подробнее на сайте"
             }
-            article.urlToImage?.let {
-                Picasso.get().load(article.urlToImage).into(binding.imageNews)
-            } ?: binding.imageNews.setImageResource(R.drawable.logo_zag)
+            when (isImageUrlValid(article.urlToImage.toString())) {
+                true -> Picasso.get().load(article.urlToImage).into(binding.imageNews)
+                false -> binding.imageNews.setImageResource(R.drawable.logo_zag)
+            }
             url = article.url
         }
     }
@@ -60,8 +62,11 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
     }
 
     interface OnNewsClickListener {
-        fun onNewsClick(article: Article, url: String){
+        fun onNewsClick(article: Article, url: String) {
 
         }
     }
+
 }
+
+fun isImageUrlValid(imageUrl: String): Boolean = imageUrl.length > 4
